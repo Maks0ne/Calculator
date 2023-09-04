@@ -99,7 +99,7 @@ body {
 }
 
 .wrapper {
-  width: 450px;
+  max-width: 450px;
   height: 550px;
   background: linear-gradient(to right, #9d00ff, pink);
   margin: 50px auto;
