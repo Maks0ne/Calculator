@@ -46,42 +46,51 @@ function count() {
         display.textContent = b
       }
     }
-    if (action.includes(key)) {
+    if (action.includes(key) && operator != '') {
+      calc()
+      operator = key
+
+
+    } else if (action.includes(key)) {
       operator = key
       display.textContent = operator
     }
 
+
     if (key == '=') {
-      if (b === '') b = a
-
-      switch (operator) {
-        case '+':
-          a = +a + +b;
-          break;
-        case '-':
-          a = +a - +b
-          break;
-        case '*':
-          a = +a * +b
-          break;
-        case '/':
-          if (b == '0') {
-            display.textContent = 'Error'
-            a = ''
-            b = ''
-            operator = ''
-            return
-          }
-          a = +a / +b
-          break;
-      }
-      finish = true
-      display.textContent = a
+      calc()
     };
-
+    console.log(a, b, operator);
   });
 };
 count()
+
+function calc() {
+
+  switch (operator) {
+    case '+':
+      a = +a + +b;
+      break;
+    case '-':
+      a = +a - +b
+      break;
+    case '*':
+      a = +a * +b
+      break;
+    case '/':
+      if (b == '0') {
+        display.textContent = 'Error'
+        a = ''
+        b = ''
+        operator = ''
+        return
+      }
+      a = +a / +b
+      break;
+  }
+  finish = true
+  display.textContent = a
+}
 
 
 
