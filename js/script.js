@@ -59,6 +59,7 @@ function count() {
 
     if (key == '=') {
       calc()
+      operator = ''
     };
     console.log(a, b, operator);
   });
